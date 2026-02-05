@@ -1,0 +1,28 @@
+Load map
+Module entry point: 0x004000e0
+
+Module:  prime.obj
+ Text segment:  220 bytes, load point 0x00400000
+ Data segment:  8 bytes, load point 0x10000000
+ Symbols:
+            Name Section Mode    Value
+            main   Text   RG  0x00400000
+             MAX          A   0x00000066
+             MIN          A   0x00000003
+    print_number   Text   R   0x004000c0
+    PRINT_STRING          A   0x00000004
+     find_primes   Text   R   0x00400018
+         newline   Data   R   0x10000000
+        is_prime   Text   R   0x0040006c
+       PRINT_INT          A   0x00000001
+
+Module:  r2k_startup.obj
+ Text segment:  64 bytes, load point 0x004000dc
+ Data segment:  8 bytes, load point 0x10000008
+ Symbols:
+            Name Section Mode    Value
+     __heap_size   Data   RG  0x1000000c
+       SYS_EXIT2          A   0x00000011
+        SYS_SBRK          A   0x00000009
+  __r2k__entry__   Text   RG  0x004000e0
+      __heap_ptr   Data   RG  0x10000008
