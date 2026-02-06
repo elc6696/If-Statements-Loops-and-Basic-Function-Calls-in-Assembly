@@ -82,7 +82,37 @@ find_primes:
 # ######################################
 # ##### BEGIN STUDENT CODE BLOCK 1 #####
 
+        # Assume we loop from numbers between 3 to 101 and test them for being prime
+
+        li      $s0, MIN            # Set s0 = MIN (3)
         
+search_loop:
+
+        li      $t0, MAX            # Set s1 = MAX (101)
+
+
+        bge     $s0, $t0, Exit      # if s0 (3) is greater than or equal to MAX, then EXIT
+
+        move    $a0, $s0            # recall that this is functional arguments  
+
+        jal     is_prime            # calls the function, is_prime
+
+        beq     $v0, $zero, skip    # if it's not prime, it moves on to next integer
+
+        move    $a0, $s0               
+
+        jal     print_number
+
+        addi    $s0, $s0, 1        # increment s0, from 3 to 4 and so on until reaches to MAX
+
+        j       search_loop
+skip:
+        addi    $s0, $s0, 1           # increments s0 to next integer
+        j       search_loop
+Exit:
+
+
+
 
 # ###### END STUDENT CODE BLOCK 1 ######
 # ######################################
