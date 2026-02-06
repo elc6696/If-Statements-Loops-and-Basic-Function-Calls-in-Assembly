@@ -124,6 +124,24 @@ is_prime:
 # ######################################
 # ##### BEGIN STUDENT CODE BLOCK 2 #####
 
+        li      $s0, 2                  # load immediate (put 2 into register $s0)
+        move    $s1, $a0                # setting s1 = a0 (n) number to test to see if prime 
+divisor_loop:
+        bge     $s0, $s1, prime         # if s0 (2) >= s1 (n) then return 1
+
+        div     $s1, $s0                # divide s1 (n) \ s0 (2)
+        mfhi    $t0                     # t0 = n % 2
+        beq $t0, $zero, not_prime       # if remainder is 0, then it's not prime
+
+        addi    $s0, $s0, 1             # incrementing method, to proceed from 2 to 3 and so on...
+        j       divisor_loop            # jumps back to loop again with new $s0 value 
+prime:
+        li      $v0, 1                  # sets return value to 1
+        j       end_is_prime            # jumps to end the function 
+not_prime: 
+        li      $v0, 0                  # sets return value to 0
+
+end_is_prime:
 # ###### END STUDENT CODE BLOCK 2 ######
 # ######################################
 
